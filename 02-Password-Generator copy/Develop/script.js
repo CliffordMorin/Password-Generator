@@ -26,7 +26,7 @@ function generatePassword(){
   var symbols = ["!", "#", "$", "%", "&", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "]", "[", "^", "_", "`", "{", "|", "}", "~"];
   var potentialChar = [];
 
-  // Puts what characters the user choses to potentialChar 
+  // Puts at least one of each user choice character into the begging of potentialChar 
   var passwordCharacters = [];
 
       if(includeLowerCase){
@@ -55,6 +55,7 @@ function generatePassword(){
       console.log(potentialChar);
 
       //Randomly select potentialChar based on the passwordLength and assign the output as a string to passwordCharacters
+      //The remaining characters amount needed are chosen at random and added to a string
       var numberOfRandom = passwordLength - passwordCharacters.length; 
       console.log(numberOfRandom);
 
@@ -62,19 +63,15 @@ function generatePassword(){
         var random = potentialChar[Math.floor(Math.random()* potentialChar.length)];
         passwordCharacters.push(random);
         console.log(passwordCharacters.join(""));
+        //shuffles the passwordCharacters so there completely random
+        for (let k = passwordCharacters.length - 1; k > 0; k--) {
+          const j = Math.floor(Math.random() * (k + 1));
+          [passwordCharacters[k], passwordCharacters[j]] = [passwordCharacters[j], passwordCharacters[k]];
+          console.log(passwordCharacters);
+        }
         }
         return passwordCharacters.join("");
 }
-
-
-      //or
-
-      // const passwordCharacters = []
-      // for (var i = 0; i < passwordLength; i++) {
-      //   var characterCode = potentialChar[Math.floor(Math.random() * potentialChar.length)];
-      //   passwordCharacters.push(String.fromCharCode(characterCode));
-      //   }
-      //   return console.log(passwordCharacters.join("")); 
       
 
 
