@@ -32,6 +32,7 @@ function generatePassword(){
       if(includeLowerCase){
         potentialChar = potentialChar.concat(lowerLetters)
         console.log(potentialChar.join(', '));
+        //adds at least one of the character chosen to front of password
         passwordCharacters.push(lowerLetters[Math.floor(Math.random()* lowerLetters.length)])
       }
       if(includeUpperCase){
@@ -54,11 +55,11 @@ function generatePassword(){
       potentialChar.join(', ');
       console.log(potentialChar);
 
-      //Randomly select potentialChar based on the passwordLength and assign the output as a string to passwordCharacters
-      //The remaining characters amount needed are chosen at random and added to a string
+      //numberOfRandom now has the  
       var numberOfRandom = passwordLength - passwordCharacters.length; 
       console.log(numberOfRandom);
 
+      //The remaining characters amount needed are chosen at random and added to a string
       for (var i = 0; i < numberOfRandom; i++) {
         var random = potentialChar[Math.floor(Math.random()* potentialChar.length)];
         passwordCharacters.push(random);
