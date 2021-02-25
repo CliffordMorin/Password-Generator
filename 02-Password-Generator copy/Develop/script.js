@@ -27,21 +27,27 @@ function generatePassword(){
   var potentialChar = [];
 
   // Puts what characters the user choses to potentialChar 
+  var passwordCharacters = [];
+
       if(includeLowerCase){
         potentialChar = potentialChar.concat(lowerLetters)
         console.log(potentialChar.join(', '));
+        passwordCharacters.push(lowerLetters[Math.floor(Math.random()* lowerLetters.length)])
       }
       if(includeUpperCase){
         potentialChar = potentialChar.concat(upperLetters)
         console.log(potentialChar.join(', '));
+        passwordCharacters.push(upperLetters[Math.floor(Math.random()* upperLetters.length)])
       }
       if(includeNumbers){
         potentialChar = potentialChar.concat(numbers)
         console.log(potentialChar.join(', '));
+        passwordCharacters.push(numbers[Math.floor(Math.random()* numbers.length)])
       }
       if(includeSpecial){
         potentialChar = potentialChar.concat(symbols)
         console.log(potentialChar.join(', '));
+        passwordCharacters.push(symbols[Math.floor(Math.random()* symbols.length)])
       }
 
       //Joins potentialChar into an array
@@ -49,13 +55,18 @@ function generatePassword(){
       console.log(potentialChar);
 
       //Randomly select potentialChar based on the passwordLength and assign the output as a string to passwordCharacters
-      var passwordCharacters = [];
-      for (var i = 0; i < passwordLength; i++) {
+      var numberOfRandom = passwordLength - passwordCharacters.length; 
+      console.log(numberOfRandom);
+
+      for (var i = 0; i < numberOfRandom; i++) {
         var random = potentialChar[Math.floor(Math.random()* potentialChar.length)];
         passwordCharacters.push(random);
+        console.log(passwordCharacters.join(""));
         }
         return passwordCharacters.join("");
-        
+}
+
+
       //or
 
       // const passwordCharacters = []
@@ -64,10 +75,8 @@ function generatePassword(){
       //   passwordCharacters.push(String.fromCharCode(characterCode));
       //   }
       //   return console.log(passwordCharacters.join("")); 
-        
-         
-  // return the password
-}
+      
+
 
 // Write password to the #password input
 function writePassword() {
