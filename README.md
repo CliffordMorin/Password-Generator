@@ -6,6 +6,6 @@
 
 ![Password Generator Demo](Images/password-generator-giphy.gif)
 
-[Site Link]
+[Site Link](https://cliffordmorin.github.io/Password-Generator/)
 
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/morin-clifford-129888a9/)
