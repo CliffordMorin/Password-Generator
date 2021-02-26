@@ -1,8 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 function generatePassword(){
+
+  //converts users answer into integers
   var passwordLength = parseInt(prompt("How many characters would you like your password to be? Type (8-128) characters."))
 
+  //brings back an alert if a number that is not between 8-128 is chosen
   if(passwordLength < 8 || passwordLength > 128){
     alert("Password needs to in between 8-128 character in length.");
     return
@@ -55,7 +58,7 @@ function generatePassword(){
       potentialChar.join(', ');
       console.log(potentialChar);
 
-      //numberOfRandom now has the  
+      //Tells numberOf Random how many remaining characters there needs to be
       var numberOfRandom = passwordLength - passwordCharacters.length; 
       console.log(numberOfRandom);
 
@@ -64,7 +67,7 @@ function generatePassword(){
         var random = potentialChar[Math.floor(Math.random()* potentialChar.length)];
         passwordCharacters.push(random);
         console.log(passwordCharacters.join(""));
-        //shuffles the passwordCharacters so there completely random
+        //shuffles the passwordCharacters so they are completely random
         for (let k = passwordCharacters.length - 1; k > 0; k--) {
           const j = Math.floor(Math.random() * (k + 1));
           [passwordCharacters[k], passwordCharacters[j]] = [passwordCharacters[j], passwordCharacters[k]];
@@ -74,7 +77,6 @@ function generatePassword(){
         return passwordCharacters.join("");
 }
       
-
 
 // Write password to the #password input
 function writePassword() {
